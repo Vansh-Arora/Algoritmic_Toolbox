@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<time.h>
 long long int max_pro(long long int arr[], long long int n)
 {
     long long int i,j,pro = 0;
@@ -33,25 +34,25 @@ long long int max_product(long long int arr[], long long int n)
 
 int main()
 {
+    while(1)
+    {
     long long int n,i;
     //scanf("%d",&n);
-    n = rand() % 1000;
+    srand(time(0));
+    n = rand() % 3;
     long long int arr[n];
     for(i=0;i<n;i++)
     {
         //scanf("%d",&arr[i]);
-        arr[i] = rand() % 100000;
+        arr[i] = rand() % 10;
     }
     //printf("%d",max_product(arr,n));
-    while(1)
+   
+    if(max_product(arr,n) == max_pro(arr,n))
     {
-        if(max_product(arr,n) == max_pro(arr,n))
-        {
-            printf("%d == %d\n",max_product(arr,n),max_pro(arr,n));
-            printf("no problem\n");
-
-
-        }
+        printf("%lli == %lli\n",max_product(arr,n),max_pro(arr,n));
+        printf("no problem\n");
+    }
     }  
     return 0;
 }
