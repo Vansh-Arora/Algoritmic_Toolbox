@@ -1,10 +1,10 @@
 #include<stdio.h>
 
-long long int max_product(long long int arr[], long long int n)
+long long max_product(long long arr[],long long n)
 {
-    long long int i;
-    long long int a = -1;
-    long long int b = -1;
+    long long i;
+    long long a = -1;
+    long long b = -1;
     for(i=0;i<n;i++)
     {
         if(arr[i] > arr[a] || a == -1)
@@ -20,13 +20,14 @@ long long int max_product(long long int arr[], long long int n)
 
 int main()
 {
-    long long int n,i;
-    scanf("%d",&n);
-    long long int arr[n];
+    long long n,i;
+    scanf("%lli",&n);
+    long long arr[n];
     for(i=0;i<n;i++)
     {
-        scanf("%d",&arr[i]);
+        scanf("%lli",&arr[i]);
     }
-    printf("%d",max_product(arr,n));
+    //printf("%d\n",sizeof(long long int));
+    printf("%lli",max_product(arr,n));
     return 0;
 }
