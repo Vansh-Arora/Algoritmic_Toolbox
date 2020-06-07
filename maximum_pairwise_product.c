@@ -1,21 +1,28 @@
 #include<stdio.h>
 
+/* In a given array find the maximum product possible for any pain*/
+
 long long max_product(long long arr[],long long n)
 {
     long long i;
     long long a = -1;
     long long b = -1;
+
+    // Check for the largest number in array
     for(i=0;i<n;i++)
     {
         if(arr[i] > arr[a] || a == -1)
             a = i;
     }
+    // check for 2nd largest number in array
     for(i=0;i<n;i++)
     {
         if( (arr[i] > arr[b] || b == -1) && i != a)
             b = i;
     }
-    return arr[a]*arr[b];
+    // a index of largest element
+    // b index of 2nd largest element
+    return arr[a]*arr[b]; // max possible product
 }
 
 int main()
@@ -27,7 +34,6 @@ int main()
     {
         scanf("%lli",&arr[i]);
     }
-    //printf("%d\n",sizeof(long long int));
     printf("%lli",max_product(arr,n));
     return 0;
 }
