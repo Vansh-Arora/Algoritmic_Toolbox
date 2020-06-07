@@ -1,7 +1,14 @@
+/* A stress check: To check if our code does what it is expected to do,
+ Taken two functions which perform absolutely same task but in different manner,
+ If they output same results it means our code is right 
+ else we made some error*/
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
-long long int max_pro(long long int arr[], long long int n)
+
+// The function multiplies each possible pair from array to find the max possible product.
+long long int max_product_slow(long long int arr[], long long int n)
 {
     long long int i,j,pro = 0;
     for(i=0;i<n-1;i++)
@@ -14,6 +21,8 @@ long long int max_pro(long long int arr[], long long int n)
     }
     return pro;
 }
+
+// The function finds the largest and 2nd largest no. to calculate max possible product.
 long long int max_product(long long int arr[], long long int n)
 {
     long long int i;
@@ -32,6 +41,7 @@ long long int max_product(long long int arr[], long long int n)
     return arr[a]*arr[b];
 }
 
+// Driver code
 int main()
 {
     while(1)
@@ -39,7 +49,7 @@ int main()
     long long int n,i;
     //scanf("%d",&n);
     srand(time(0));
-    n = rand() % 3;
+    n = rand() % 3; // rand function generates random numbers
     long long int arr[n];
     for(i=0;i<n;i++)
     {
@@ -48,9 +58,9 @@ int main()
     }
     //printf("%d",max_product(arr,n));
    
-    if(max_product(arr,n) == max_pro(arr,n))
+    if(max_product(arr,n) == max_product_slow(arr,n))
     {
-        printf("%lli == %lli\n",max_product(arr,n),max_pro(arr,n));
+        printf("%lli == %lli\n",max_product(arr,n),max_product_slow(arr,n));
         printf("no problem\n");
     }
     }  
