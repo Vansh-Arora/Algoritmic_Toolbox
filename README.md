@@ -1,2 +1,2 @@
 # Algoritmic_Toolbox
-Algorithms
+Learning Algorithms
