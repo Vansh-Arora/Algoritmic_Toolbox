@@ -48,6 +48,37 @@ void print_list()
     }
 }
 
+// A function to insert at end.
+
+void insert_at_end()
+{
+    if(head == NULL)
+    {
+        int data_entry;
+        printf("Enter value: ");
+        scanf("%d",&data_entry);
+        struct node* new = (struct node*)malloc(sizeof(struct node));
+        new->data = data_entry;
+        new->ptr = NULL;
+        head = new;
+    }
+    else
+    {
+        struct node* next = head;
+        while(next->ptr != NULL)            // Continue till u don't encounter a null node.
+        {
+            next = next->ptr;         // Move to the next node  
+        }
+        int data_entry;
+        printf("Enter value: ");
+        scanf("%d",&data_entry);
+        struct node* new = (struct node*)malloc(sizeof(struct node));
+        new->data = data_entry;
+        new->ptr = NULL;
+        next->ptr = new;
+    }
+}
+
 /*--------------------------------------------------------------------------------------------*/
 
 
@@ -56,6 +87,7 @@ void print_list()
 int main()
 {
     insert_at_beg();
-    print_list();
+    insert_at_end();
+    print_list()
     return 0;
 }
