@@ -49,7 +49,6 @@ void print_list()
 }
 
 // A function to insert at end.
-
 void insert_at_end()
 {
     if(head == NULL)
@@ -79,6 +78,19 @@ void insert_at_end()
     }
 }
 
+// A function to find the number of nodes in a list.
+int count_nodes()
+{
+    struct node* next = head;
+    int count = 0;
+    while(next != NULL)            // Continue till u don't encounter a null node.
+    {
+        count++;
+        next = next->ptr;         // Move to the next node  
+    }
+    return count;
+}
+
 /*--------------------------------------------------------------------------------------------*/
 
 
@@ -86,8 +98,13 @@ void insert_at_end()
 // Driver Function
 int main()
 {
-    insert_at_beg();
+    int i =0;
+    while(i<5){
+    //insert_at_beg();
     insert_at_end();
-    print_list()
+    i++;
+    }
+    printf("%d\n",count_nodes());
+    print_list();
     return 0;
 }
