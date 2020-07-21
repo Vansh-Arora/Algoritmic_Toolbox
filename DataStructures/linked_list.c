@@ -15,7 +15,10 @@ struct node
 /* A global variable head to point the beginning of our linked list. */
 struct node* head = NULL;
 
-/* A function to insert a node at head. */
+/* Functions to perform different operations on the list. */
+/*--------------------------------------------------------------------------------------------*/
+
+// A function to insert a node at head.
 void insert_at_beg()
 {
     int data_entry;
@@ -34,9 +37,25 @@ void insert_at_beg()
     head = next;     
 }
 
+// A function to print the list.
+void print_list()
+{
+    struct node* next = head;
+    while(next != NULL)            // Continue till u don't encounter a null node.
+    {
+        printf("%d ",next->data);
+        next = next->ptr;         // Move to the next node  
+    }
+}
+
+/*--------------------------------------------------------------------------------------------*/
+
+
+
 // Driver Function
 int main()
 {
     insert_at_beg();
+    print_list();
     return 0;
 }
