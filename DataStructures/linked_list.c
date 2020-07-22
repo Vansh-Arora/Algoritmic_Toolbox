@@ -91,6 +91,31 @@ int count_nodes()
     return count;
 }
 
+// A function to add a node at a particular position.
+void insert_at_pos()
+{
+    int position;
+    printf("Enter the position where you want to add a node: ");
+    scanf("%d",&position);
+    if(position == 1)
+        insert_at_beg();
+    else
+    {
+        struct node* next = head;
+        int i;
+        for(i=1;i<position-1;i++)
+        {
+            next = next->ptr;
+        }
+        int data_entry;
+        printf("Enter value: ");
+        scanf("%d",&data_entry);
+        struct node* new = (struct node*)malloc(sizeof(struct node));
+        new->data = data_entry;
+        new->ptr = next->ptr;
+        next->ptr = new;
+    }
+}
 /*--------------------------------------------------------------------------------------------*/
 
 
@@ -105,6 +130,8 @@ int main()
     i++;
     }
     printf("%d\n",count_nodes());
+    print_list();
+    insert_at_pos();
     print_list();
     return 0;
 }
