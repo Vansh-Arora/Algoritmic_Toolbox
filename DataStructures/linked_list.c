@@ -118,6 +118,14 @@ bool is_empty()
         return false;
 }
 
+// A function to renove first node.
+void remove_head()
+{
+    head = head->ptr;
+}
+// A function to remove a particular node.
+// A function to remove last node.
+
 /*--------------------------------------------------------------------------------------------*/
 
 
@@ -135,6 +143,8 @@ int main()
     print_list();
     insert_at_pos();
     print_list();
-    printf(is_empty());
+    printf("%d",is_empty());
+    remove_head();
+    print_list();
     return 0;
 }
