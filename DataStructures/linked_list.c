@@ -18,19 +18,22 @@ struct node* head = NULL;
 /* Functions to perform different operations on the list. */
 /*--------------------------------------------------------------------------------------------*/
 
-// A function to insert a node at head.
-void insert_at_beg()
+// A function to create a node.
+struct node* create_node()
 {
     int data_entry;
     printf("Enter value: ");
     scanf("%d",&data_entry);
-    
-    // In this part of code we create a new node..
-    // ------- 
-    struct node* next = (struct node*)malloc(sizeof(struct node));
-    next->data = data_entry; // Here we put the data inside our new node.
+    struct node* new = (struct node*)malloc(sizeof(struct node));
+    new->data = data_entry;
+    return new;
+}
+
+// A function to insert a node at head.
+void insert_at_beg()
+{
+    struct node* next = create_node();
     next->ptr = head;        // Here we link anything after head to our new node.
-    // -------
 
     /* Now we make head point to our new node.
        Making this new node the first node. */
@@ -53,11 +56,7 @@ void insert_at_end()
 {
     if(head == NULL)
     {
-        int data_entry;
-        printf("Enter value: ");
-        scanf("%d",&data_entry);
-        struct node* new = (struct node*)malloc(sizeof(struct node));
-        new->data = data_entry;
+        struct node* new = create_node();
         new->ptr = NULL;
         head = new;
     }
@@ -68,11 +67,7 @@ void insert_at_end()
         {
             next = next->ptr;         // Move to the next node  
         }
-        int data_entry;
-        printf("Enter value: ");
-        scanf("%d",&data_entry);
-        struct node* new = (struct node*)malloc(sizeof(struct node));
-        new->data = data_entry;
+        struct node* new = create_node();
         new->ptr = NULL;
         next->ptr = new;
     }
@@ -107,11 +102,7 @@ void insert_at_pos()
         {
             next = next->ptr;
         }
-        int data_entry;
-        printf("Enter value: ");
-        scanf("%d",&data_entry);
-        struct node* new = (struct node*)malloc(sizeof(struct node));
-        new->data = data_entry;
+        struct node* new = create_node();
         new->ptr = next->ptr;
         next->ptr = new;
     }
