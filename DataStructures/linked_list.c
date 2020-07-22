@@ -1,6 +1,7 @@
 // Singly linked list
 #include<stdio.h>
 #include<stdlib.h>
+#include<stdbool.h>
 
 /* Each node in a linked list must consist of at least 2 elements:
     1) Data value
@@ -40,14 +41,25 @@ void insert_at_beg()
     head = next;     
 }
 
-// A function to print the list.
-void print_list()
+// A function to add a node at a particular position.
+void insert_at_pos()
 {
-    struct node* next = head;
-    while(next != NULL)            // Continue till u don't encounter a null node.
+    int position;
+    printf("Enter the position where you want to add a node: ");
+    scanf("%d",&position);
+    if(position == 1)
+        insert_at_beg();
+    else
     {
-        printf("%d ",next->data);
-        next = next->ptr;         // Move to the next node  
+        struct node* next = head;
+        int i;
+        for(i=1;i<position-1;i++)
+        {
+            next = next->ptr;
+        }
+        struct node* new = create_node();
+        new->ptr = next->ptr;
+        next->ptr = new;
     }
 }
 
@@ -73,6 +85,17 @@ void insert_at_end()
     }
 }
 
+// A function to print the list.
+void print_list()
+{
+    struct node* next = head;
+    while(next != NULL)            // Continue till u don't encounter a null node.
+    {
+        printf("%d ",next->data);
+        next = next->ptr;         // Move to the next node  
+    }
+}
+
 // A function to find the number of nodes in a list.
 int count_nodes()
 {
@@ -86,27 +109,15 @@ int count_nodes()
     return count;
 }
 
-// A function to add a node at a particular position.
-void insert_at_pos()
+// A function to check if list is empty.
+bool is_empty()
 {
-    int position;
-    printf("Enter the position where you want to add a node: ");
-    scanf("%d",&position);
-    if(position == 1)
-        insert_at_beg();
-    else
-    {
-        struct node* next = head;
-        int i;
-        for(i=1;i<position-1;i++)
-        {
-            next = next->ptr;
-        }
-        struct node* new = create_node();
-        new->ptr = next->ptr;
-        next->ptr = new;
-    }
+    if(head == NULL)
+        return true;
+    else 
+        return false;
 }
+
 /*--------------------------------------------------------------------------------------------*/
 
 
@@ -124,5 +135,6 @@ int main()
     print_list();
     insert_at_pos();
     print_list();
+    printf(is_empty());
     return 0;
 }
