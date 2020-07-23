@@ -53,7 +53,7 @@ void insert_at_pos()
     {
         struct node* next = head;
         int i;
-        for(i=1;i<position-1;i++)
+        for(i=1;i<position-1;i++) // TO insert at position 'n', grab node 'n-1'
         {
             next = next->ptr;
         }
@@ -125,6 +125,25 @@ void remove_head()
 }
 
 // A function to remove a particular node.
+void remove_node()
+{
+    int position;
+    printf("Enter the position from where you want to remove a node: ");
+    scanf("%d",&position);
+    if (position == 1)
+        remove_head();
+    else
+    {
+        int i;
+        struct node* next = head;
+        for(i=1;i<position-1;i++)
+        {
+            next = next->ptr;
+        }
+        next->ptr = (next->ptr)->ptr;
+    }
+}
+
 // A function to remove last node.
 void remove_last_node()
 {
@@ -157,6 +176,8 @@ int main()
     printf("\n%d\n",is_empty());
     remove_head();
     remove_last_node();
+    print_list();
+    remove_node();
     print_list();
     return 0;
 }
