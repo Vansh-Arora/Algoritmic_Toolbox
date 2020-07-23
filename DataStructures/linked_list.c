@@ -123,8 +123,19 @@ void remove_head()
 {
     head = head->ptr;
 }
+
 // A function to remove a particular node.
 // A function to remove last node.
+void remove_last_node()
+{
+    struct node* next = head;
+    while((next->ptr)->ptr != NULL)            // Continue till u don't encounter a null node.
+    {
+        next = next->ptr;         // Move to the next node  
+    }
+    next->ptr = NULL;
+    next = NULL;
+}
 
 /*--------------------------------------------------------------------------------------------*/
 
@@ -143,8 +154,9 @@ int main()
     print_list();
     insert_at_pos();
     print_list();
-    printf("%d",is_empty());
+    printf("\n%d\n",is_empty());
     remove_head();
+    remove_last_node();
     print_list();
     return 0;
 }
