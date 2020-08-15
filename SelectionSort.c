@@ -1,3 +1,7 @@
+// Insertion Sort
+// Select the smallest element from n elements, swap it with first element of array
+// Select the smallest element from n-1 elements, swap it with first element of new subarray.
+
 #include<stdio.h>
 #include<stdlib.h>
 
