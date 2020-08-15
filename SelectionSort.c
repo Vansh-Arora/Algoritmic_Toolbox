@@ -21,12 +21,26 @@ void SelectionSort(int arr[],int n)
 }
 int main()
 {
-    int a[] = {1,5,9,7,2,3};
-    SelectionSort(a,6);
+    int n;
+
+    printf("Enter the size of array: ");
+    scanf("%d",&n);
+    
+    int arr[n];
     int i;
-    for(i=0;i<6;i++)
+
+    printf("Add array elements:\n");
+    for(i = 0; i < n; i++)
     {
-        printf("%d ",a[i]);
+        scanf("%d ",&arr[i]);
     }
+
+    SelectionSort(arr,n);
+
+    for(i = 0; i < n; i++)
+    {
+        printf("%d ",arr[i]);
+    }
+
     return 0;
 }
