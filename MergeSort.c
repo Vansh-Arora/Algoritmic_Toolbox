@@ -2,18 +2,19 @@
 
 void merge(int arr[], int p, int q, int r)
 {
-    printf("jel");
-    int L[ ((q-p)+1) + 1 ];  // Left Array
-    int R[ (r-q) + 1 ];        // Right Array
+    int n1 = (q - p) + 1;
+    int n2 = r - q;
+    int L[ n1 + 1 ];  // Left Array
+    int R[ n2 + 1 ];        // Right Array
     int i;
     int j;
     
-    for(i = 0; i <= q; i++)
+    for(i = 0; i < n1; i++)
     {
-        L[i] = arr[i];
+        L[i] = arr[i+p];
     }
 
-    for(j = 0; j <= r-q; j++)
+    for(j = 0; j < n2; j++)
     {
         R[j] = arr[j+q+1];
     }
@@ -24,7 +25,7 @@ void merge(int arr[], int p, int q, int r)
     int k;
     i = 0;
     j = 0;
-    for(k = 0; k <= r; k++)
+    for(k = p; k <= r; k++)
     {
         if(L[i] < R[j])
         {
@@ -51,11 +52,10 @@ void mergeSort(int arr[],int p, int r)
 
 int main()
 {
-    int a[] = {1,5,8,10,2,7,9,11};
-    mergeSort(a,0,7);
+    int a[] = {1,2,9,8,10};
+    mergeSort(a,0,4);
     int i;
-    printf("ans");
-    for(i=0;i<8;i++)
+    for(i=0;i<5;i++)
     {
         printf("%d ",a[i]);
     }
