@@ -2,7 +2,7 @@
 
 void merge(int arr[], int p, int q, int r)
 {
-    printf("jel");
+    printf("jel");   # Remove this statement to see error
     int L[ ((q-p)+1) + 1 ];  // Left Array
     int R[ (r-q) + 1 ];        // Right Array
     int i;
