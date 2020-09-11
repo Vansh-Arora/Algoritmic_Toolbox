@@ -148,9 +148,9 @@ void remove_node()
 void remove_last_node()
 {
     struct node* next = head;
-    while((next->ptr)->ptr != NULL)            // Continue till u don't encounter a null node.
+    while((next->ptr)->ptr != NULL)            // Continue till u don't encounter a node which points to a node which points to null node.
     {
-        next = next->ptr;         // Move to the next node  
+        next = next->ptr;                     // Move to the next node  
     }
     next->ptr = NULL;
     next = NULL;
