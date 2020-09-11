@@ -163,21 +163,6 @@ void remove_last_node()
 // Driver Function
 int main()
 {
-    int i =0;
-    while(i<5){
-    //insert_at_beg();
-    insert_at_end();
-    i++;
-    }
-    printf("%d\n",count_nodes());
-    print_list();
-    insert_at_pos();
-    print_list();
-    printf("\n%d\n",is_empty());
-    remove_head();
-    remove_last_node();
-    print_list();
-    remove_node();
-    print_list();
+
     return 0;
 }
